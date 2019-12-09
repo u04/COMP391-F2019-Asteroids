@@ -11,6 +11,7 @@ public class ExampleTwo : MonoBehaviour
     public Text scoreText;
     //public int score;
     Text g;
+    public GameObject smallThing;
 
     void Start()
     {
@@ -42,7 +43,8 @@ public class ExampleTwo : MonoBehaviour
         
     }
     //int counter = 0;
-    
+    GameObject ted;
+    Rigidbody2D sam;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Bullet")
@@ -56,6 +58,12 @@ public class ExampleTwo : MonoBehaviour
         if (other.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
+            
+            ted = Instantiate(smallThing, transform.position, transform.rotation);
+            //ted.AddComponent<Rigidbody2D>();
+            sam = ted.GetComponent<Rigidbody2D>();
+            sam.AddForce(transform.forward * 1.2f);
+
         }
 
     }

@@ -220,3 +220,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  smallThing: {fileID: 315447566506368771, guid: 37cd4d31f3a063c47be800d65631f90a,
+    type: 3}
