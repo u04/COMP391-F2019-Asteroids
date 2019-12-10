@@ -87,7 +87,12 @@ public class Ship : MonoBehaviour
     Vector3 temp = new Vector3(0f, 0f, 0);
     void OnTriggerEnter2D(Collider2D collision)
     {
-        this.gameObject.transform.position = temp;
+        if (collision.gameObject.tag == "la" || collision.gameObject.tag == "Small Asteroid" || collision.gameObject.tag == "Bullet")
+        {
+            this.gameObject.transform.position = temp;
+
+        }
+
     }
 
 
