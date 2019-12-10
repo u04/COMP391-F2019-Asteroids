@@ -28,7 +28,7 @@ public class Spawn : MonoBehaviour
 
     }
 
-    int maxEnemy = 5;
+    int maxEnemy = 3;
     int enemyCount = 0;
     public void SpawnRandom()
     {
