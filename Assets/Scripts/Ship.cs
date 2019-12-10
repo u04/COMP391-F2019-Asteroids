@@ -84,6 +84,11 @@ public class Ship : MonoBehaviour
     {
         Instantiate(lazerPrefab, firePoint.position, firePoint.rotation);
     }
-    
-    
+    Vector3 temp = new Vector3(0f, 0f, 0);
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        this.gameObject.transform.position = temp;
+    }
+
+
 }
