@@ -90,6 +90,7 @@ public class Ship : MonoBehaviour
         if (collision.gameObject.tag == "la" || collision.gameObject.tag == "Small Asteroid" || collision.gameObject.tag == "Bullet")
         {
             this.gameObject.transform.position = temp;
+            //Destroy(this.gameObject);
 
         }
 
