@@ -19,7 +19,7 @@ public class Spawn : MonoBehaviour
     public GameObject saucer;
     void Start()
     {
-        InvokeRepeating("Saucer", 5, 5f);
+        InvokeRepeating("Saucer", 60, 60f);
     }
     void Update()
     {
@@ -30,11 +30,12 @@ public class Spawn : MonoBehaviour
             SpawnRandom();       //Calling method SpawnRandom()
             timer = 0;        //Reseting timer to 0
         }
+        enemyCount = GameObject.FindGameObjectsWithTag("la").Length;
 
     }
 
     int maxEnemy = 3;
-    int enemyCount = 0;
+    int enemyCount;
     public void SpawnRandom()
     {
         Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(600, Screen.height), Camera.main.farClipPlane / 2));
@@ -44,8 +45,8 @@ public class Spawn : MonoBehaviour
                 new Vector3(Random.Range(-9.0f, 9.0f),
                     Random.Range(-6.0f, 6.0f), 0),
                 Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
-        enemyCount++;
         
+
     }
     void Saucer()
     {

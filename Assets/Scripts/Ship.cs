@@ -9,6 +9,7 @@ public class Ship : MonoBehaviour
     public Transform tail;
     public GameObject lazerPrefab;
     public GameObject tailObject;
+    public GameObject explo;
     Rigidbody rb;
     public float thrust = 1.0f;
 
@@ -16,6 +17,7 @@ public class Ship : MonoBehaviour
     void Start()
     {
         //rb = this.GetComponent<Rigidbody>();
+        explo.SetActive(false);
         
     }
     // Update is called once per frame
@@ -89,6 +91,12 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.tag == "la" || collision.gameObject.tag == "Small Asteroid" || collision.gameObject.tag == "Bullet")
         {
+
+                explo.SetActive(true);
+
+
+            explo.SetActive(false);
+
             this.gameObject.transform.position = temp;
             //Destroy(this.gameObject);
 
