@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+    //public AudioClip m_AudioClip;
+    //AudioSource m_AudioSource;
     public int score;
     public static int counter = 0;
+    public static int counterOther = 0;
 
     public GameObject apple;      // Apple Object in Scene (Sprite)
     public GameObject badApple;      // Bad Apple Object in Scene (Sprite)
@@ -19,10 +22,17 @@ public class Spawn : MonoBehaviour
     public GameObject saucer;
     void Start()
     {
+        //m_AudioSource.clip = m_AudioClip;
+        ////Fetch the AudioSource component of the GameObject (make sure there is one in the Inspector)
+        //m_AudioSource = GetComponent<AudioSource>();
+        ////Stop the Audio playing
+        //m_AudioSource.loop = true;
+        //m_AudioSource.Play();
         InvokeRepeating("Saucer", 60, 60f);
     }
     void Update()
     {
+        
 
         timer += Time.deltaTime;   // Timer Counter
         if (timer > spawnTime)
@@ -31,6 +41,7 @@ public class Spawn : MonoBehaviour
             timer = 0;        //Reseting timer to 0
         }
         enemyCount = GameObject.FindGameObjectsWithTag("la").Length;
+        
 
     }
 

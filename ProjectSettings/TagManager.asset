@@ -12,6 +12,8 @@ TagManager:
   - Text
   - la
   - al
+  - b2
+  - te2
   layers:
   - Default
   - TransparentFX

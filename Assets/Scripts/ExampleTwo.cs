@@ -11,11 +11,13 @@ public class ExampleTwo : MonoBehaviour
     public Text scoreText;
     //public int score;
     Text g;
+    Text gOther;
     public GameObject smallThing;
 
     void Start()
     {
         g = GameObject.FindGameObjectWithTag("Text").GetComponent<Text>();
+        gOther = GameObject.FindGameObjectWithTag("te2").GetComponent<Text>();
     }
 
     void Update()
@@ -50,12 +52,18 @@ public class ExampleTwo : MonoBehaviour
         if (other.gameObject.tag == "Bullet")
         {
             Spawn.counter++;
-            Debug.Log(Spawn.counter);
+            //Debug.Log(Spawn.counter);
             g.text = "Count: " + Spawn.counter.ToString();
             
         }
+        if (other.gameObject.tag == "b2")
+        {
+            Spawn.counterOther++;
+            Debug.Log(Spawn.counterOther);
+            gOther.text = "Count: " + Spawn.counterOther.ToString();
 
-        if (other.gameObject.tag == "Bullet")
+        }
+        if (other.gameObject.tag == "Bullet" || other.gameObject.tag == "b2")
         {
             Destroy(gameObject);
             

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ship : MonoBehaviour
+public class Ship2 : MonoBehaviour
 {
-    AudioSource audioData;
-
     public Transform firePoint;
     public Transform tail;
     public GameObject lazerPrefab;
@@ -18,8 +16,6 @@ public class Ship : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioData = GetComponent<AudioSource>();
-
         //rb = this.GetComponent<Rigidbody>();
         explo.SetActive(false);
 
@@ -28,15 +24,15 @@ public class Ship : MonoBehaviour
     void Update()
     {
         //Move();
-        if (Input.GetKey("d"))
+        if (Input.GetKey("l"))
         {
             RotateLeft();
         }
-        if (Input.GetKey("a"))
+        if (Input.GetKey("j"))
         {
             RotateRight();
         }
-        if (Input.GetKey("w"))
+        if (Input.GetKey("i"))
         {
             //Foward();
             //Instantiate(tailObject, tail.position, tail.rotation);
@@ -46,19 +42,18 @@ public class Ship : MonoBehaviour
 
 
         }
-        if (!Input.GetKey("w"))
+        if (!Input.GetKey("i"))
         {
             tailObject.SetActive(false);
         }
 
-            //if (Input.GetKey("s"))
-            //{
-            //    Back();
-            //}
-            if (Input.GetKey("space"))
+        //if (Input.GetKey("k"))
+        //{
+        //    Back();
+        //}
+        if (Input.GetKey("u"))
         {
             Shoot();
-            audioData.Play();
         }
 
         //// Rotate the ship if necessary
@@ -66,7 +61,7 @@ public class Ship : MonoBehaviour
         //    0.02f * Time.deltaTime);
 
         // Thrust the ship if necessary
-        GetComponent<Rigidbody2D>().AddForce(transform.up * 0.002f * Input.GetAxis("Vertical"));
+        GetComponent<Rigidbody2D>().AddForce(transform.up * 0.002f * Input.GetAxis("Vertical2"));
 
     }
     //float speed = 7.0f;
@@ -90,10 +85,6 @@ public class Ship : MonoBehaviour
     void Shoot()
     {
         Instantiate(lazerPrefab, firePoint.position, firePoint.rotation);
-        
-        //Stop the Audio playing
-        
-        
     }
     Vector3 temp = new Vector3(0f, 0f, 0);
     void OnTriggerEnter2D(Collider2D collision)
@@ -101,7 +92,7 @@ public class Ship : MonoBehaviour
         if (collision.gameObject.tag == "la" || collision.gameObject.tag == "Small Asteroid" || collision.gameObject.tag == "Bullet")
         {
 
-                explo.SetActive(true);
+            explo.SetActive(true);
 
 
             explo.SetActive(false);
