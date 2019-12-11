@@ -15,7 +15,12 @@ public class Spawn : MonoBehaviour
 
     private float timer = 0; //counting timer, reset after calling SpawnRandom() function
     private int randomNumber;       //variable for storage of an random Number
-
+    public Transform saucerSpawn;
+    public GameObject saucer;
+    void Start()
+    {
+        InvokeRepeating("Saucer", 5, 5f);
+    }
     void Update()
     {
 
@@ -41,6 +46,10 @@ public class Spawn : MonoBehaviour
                 Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
         enemyCount++;
         
+    }
+    void Saucer()
+    {
+        Instantiate(saucer, saucerSpawn.position, saucerSpawn.rotation);
     }
 
 }
